@@ -11,7 +11,7 @@
     <div class="bg-primary p-3">
         <div class="d-flex justify-content-between">
             <p class="text-white">Sistem Pakar</p>
-            <a href="" class="text-white">Login Pakar</a>
+            <a href="/login" class="text-white">Login Pakar</a>
         </div>
     </div>
      @yield('content')

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGelajaPenyakitTable extends Migration
+class CreateKonsultasisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateGelajaPenyakitTable extends Migration
      */
     public function up()
     {
-        Schema::create('gelaja_penyakit', function (Blueprint $table) {
-          
-            $table->foreignId('gejala_id');
-            $table->foreignId('penyakit_id');
-            $table->primary(['gejala_id','penyakit_id']);
-         
+        Schema::create('konsultasis', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->integer('umur');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +28,6 @@ class CreateGelajaPenyakitTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gelaja_penyakit');
+        Schema::dropIfExists('konsultasis');
     }
 }

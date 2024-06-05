@@ -21,6 +21,12 @@
                     <x-nav-link :href="route('datapenyakit')" :active="request()->routeIs('datapenyakit')">
                         {{ __('Penyakit') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('datagejalapenyakit')" :active="request()->routeIs('datagejalapenyakit')">
+                        {{ __('Gejala Penyakit') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('datadiagnosa')" :active="request()->routeIs('datadiagnosa')">
+                        {{ __('Data Diagnosis') }}
+                    </x-nav-link>
                 </div>
             </div>
 

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Penyakit') }}
+            {{ __('Data Diagnosa') }}
         </h2>
     </x-slot>
 
@@ -12,16 +12,8 @@
                     <div class="flex flex-wrap items-center">
                         <div class="relative w-full px-4 max-w-full flex-grow flex-1">
                             <h3 class="font-semibold text-base text-gray-800">
-                                Daftar Penyakit
+                                Daftar Diagnosa User
                             </h3>
-                        </div>
-                        <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
-
-                            <a href="{{ route('createpenyakit') }}"
-                                class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1"
-                                type="button" style="transition:all .15s ease">
-                                Tambah Penyakit
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -36,20 +28,20 @@
                                 </th>
                                 <th
                                     class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left">
-                                    ID
+                                    Nama
                                 </th>
                                 <th
                                     class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left">
-                                    KRITERIA
+                                    Umur
                                 </th>
                                 <th
                                     class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left">
-                                    DESKRIPSI PENYAKIT
+                                    Penyakit
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($penyakits as $item)
+                            @foreach ($konsultasi as $item)
                             <tr>
                                 <td
                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
@@ -57,19 +49,19 @@
                                 </td>
                                 <td
                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                                    {{ $item->id }}
+                                    {{ $item->name }}
                                 </td>
                                 <td
                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                                    {{ $item->kode }}
+                                    {{ $item->umur }}
                                 </td>
+                                @php
+                                $item->penyakit_id = \App\Models\Diagnosa::where('konsultasi_id', $item->id)->orderBy('id', 'desc')->first()->penyakit_id ?? null;
+                                $item->kriteria = \App\Models\Penyakit::where('id', $item->penyakit_id)->first()->kriteria ?? null;
+                                @endphp
                                 <td
                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
                                     {{ $item->kriteria }}
-                                </td>
-                                <td
-                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                                    {{ $item->deskripsi_penyakit }}
                                 </td>
                             </tr>
                             @endforeach

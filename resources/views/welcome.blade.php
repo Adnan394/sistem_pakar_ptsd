@@ -14,8 +14,8 @@
                     <div class="">
                         <h4>Langkah Awal Menuju Pemulihan: Memahami PTSD dan Cara Mengatasinya</h4>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Launch demo modal
+                        <button type="button" class="btn btn-primary d-block ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Mulai
                         </button>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                         <h4>Membangun Masa Depan: Mengatasi PTSD dengan Bantuan Ahli</h4>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Launch demo modal
+                            Mulai
                         </button>
                     </div>
                 </div>
@@ -111,15 +111,24 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Diagnosis</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <form action="{{ route('konsultasi_store') }}" method="POST">
+            @csrf
+            <div class="mb-3">
+              <label for="name">Masukan Nama</label>
+              <input type="text" class="form-control" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="name">Umur</label>
+                <input type="number" class="form-control" name="umur" required>
+            </div>
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary">Kirim</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

@@ -8,17 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Gejala extends Model
 {
     
-    protected $table = "gejalas";
-    protected $primaryKey ="id";
-    protected $fillable =[
-        'id','id_gejala','deskrip_gejala' 
-    ];
+    protected $guarded = ['id'];
 
-    public function penyakit()
+    public function diagnoses()
     {
-
-        return $this->belongsToMany(Penyakit::class);
-
+        return $this->hasMany(Diagnosa::class);
     }
-
 }

@@ -15,6 +15,11 @@ class CreateDiagnosasTable extends Migration
     {
         Schema::create('diagnosas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('konsultasi_id')->references('id')->on('konsultasis');
+            $table->foreignId('gejala_id')->references('id')->on('gejalas');
+            $table->boolean('jawaban');
+            $table->foreignId('next_gejala_id')->nullable();
+            $table->foreignId('penyakit_id')->nullable();
             $table->timestamps();
         });
     }

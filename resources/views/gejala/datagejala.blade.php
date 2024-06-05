@@ -40,13 +40,15 @@
                                 </th>
                                 <th
                                     class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left">
-                                    GEJALA
+                                    KODE
+                                </th>
+                                <th
+                                    class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left">
+                                    DESC
                                 </th>
                             </tr>
                         </thead>
                         @foreach ($datagejala as $item)
-
-
                         <tbody>
                             <tr>
                                 {{-- <td
@@ -55,11 +57,15 @@
                                 </td> --}}
                                 <td
                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                                    {{ $item->id_gejala }}
+                                    {{ $item->id }}
                                 </td>
                                 <td
                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                                    {{ $item->deskrip_gejala }}
+                                    {{ $item->kode }}
+                                </td>
+                                <td
+                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                                    {{ $item->deskripsi }}
                                 </td>
                             </tr>
                         </tbody>

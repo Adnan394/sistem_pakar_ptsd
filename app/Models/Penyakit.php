@@ -7,13 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Penyakit extends Model
 {
-    protected $table = "penyakits";
-    protected $primaryKey ="id";
-    protected $guarded=[];
+    protected $guarded = ['id'];
     
     public function gejala()
     {
-        
         return $this->belongsToMany(Gejala::class,'gelaja_penyakit');
 
     }

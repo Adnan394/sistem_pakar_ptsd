@@ -17,7 +17,7 @@
                         </div>
                         <div class="relative w-full px-4 max-w-full flex-grow flex-1 text-right">
 
-                            <a href="{{ route('createpenyakit') }}"
+                            <a href="{{ route('creategejalapenyakit') }}"
                                 class="bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-1 rounded outline-none focus:outline-none mr-1 mb-1"
                                 type="button" style="transition:all .15s ease">
                                 Tambah Penyakit
@@ -36,20 +36,16 @@
                                 </th>
                                 <th
                                     class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left">
-                                    ID
+                                    Penyakit
                                 </th>
                                 <th
                                     class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left">
-                                    KRITERIA
-                                </th>
-                                <th
-                                    class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left">
-                                    DESKRIPSI PENYAKIT
+                                    Gejala
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($penyakits as $item)
+                            @foreach ($datagejalapenyakit as $item)
                             <tr>
                                 <td
                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
@@ -57,19 +53,11 @@
                                 </td>
                                 <td
                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                                    {{ $item->id }}
+                                    {{ App\Models\Penyakit::where('id', $item->penyakit_id)->first()->kode }}
                                 </td>
                                 <td
                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                                    {{ $item->kode }}
-                                </td>
-                                <td
-                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                                    {{ $item->kriteria }}
-                                </td>
-                                <td
-                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                                    {{ $item->deskripsi_penyakit }}
+                                    {{ App\Models\Gejala::where('id', $item->gejala_id)->first()->kode }}
                                 </td>
                             </tr>
                             @endforeach
