@@ -5,17 +5,17 @@
         </h2>
     </x-slot>
     <section class="h-screen bg-gray-100 bg-opacity-50 mt-4">
-        <form class="container max-w-2xl mx-auto shadow-md md:w-3/4" action="{{ route('createpenyakit') }}"
+        <form class="container max-w-2xl mx-auto shadow-md md:w-3/4" action="{{ route('savepenyakit') }}"
             method="POST">
             @csrf
             <div class="space-y-6 bg-white">
                 <div class="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
                     <h2 class="max-w-sm mx-auto md:w-1/3">
-                        ID PENYAKIT
+                        KODE
                     </h2>
                     <div class="max-w-sm mx-auto md:w-2/3">
                         <div class=" relative ">
-                            <input type="text" id="id_penyakit" name="id_penyakit"
+                            <input type="text" id="id_penyakit" name="kode"
                                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                                 placeholder="id penyakit" />
                         </div>
@@ -23,11 +23,11 @@
                 </div>
                 <div class="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
                     <h2 class="max-w-sm mx-auto md:w-1/3">
-                        JENIS PENYAKIT
+                        KRITERIA
                     </h2>
                     <div class="max-w-sm mx-auto md:w-2/3">
                         <div class=" relative ">
-                            <input type="text" id="jenis_penyakit" name="jenis_penyakit"
+                            <input type="text" id="jenis_penyakit" name="kriteria"
                                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                                 placeholder="jenis penyakit" />
                         </div>
@@ -35,39 +35,11 @@
                 </div>
                 <div class="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
                     <h2 class="max-w-sm mx-auto md:w-1/3">
-                        DESKRIPSI PENYAKIT
+                        DESKRIPSI
                     </h2>
                     <div class="max-w-sm mx-auto md:w-2/3">
                         <div class=" relative ">
-                            <input type="text" id="deskrip_penyakit" name="deskrip_penyakit"
-                                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                                placeholder="deskrip penyakit" />
-                        </div>
-                    </div>
-                </div>
-                <div class="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
-                    <h2 class="max-w-sm mx-auto md:w-1/3">
-                        GEJALA
-                    </h2>
-                    <div class="max-w-sm mx-auto md:w-2/3">
-                        <div class=" relative ">
-                            <select id="deskrip_gejala" name="deskrip_gejala[]"
-                                class=" js-example-basic-multiple rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                                placeholder="gejala" multiple="multiple">
-                                @foreach ($gejalas as $gejala)
-                                <option value="{{ $gejala->id }}"> {{ $gejala->deskrip_gejala }} </option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
-                    <h2 class="max-w-sm mx-auto md:w-1/3">
-                        SOLUSI
-                    </h2>
-                    <div class="max-w-sm mx-auto md:w-2/3">
-                        <div class=" relative ">
-                            <input type="text" id="solusi" name="solusi"
+                            <input type="text" id="solusi" name="deskripsi"
                                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
                                 placeholder="solusi" />
                         </div>
@@ -83,11 +55,11 @@
             {{-- @method(‘PUT’) --}}
         </form>
     </section>
-    @push('scripts')
+    {{-- @push('scripts')
     <script>
         $(deskrip_gejala).ready(function() {
     $('.js-example-basic-multiple').select2();
     });
     </script>
-    @endpush
+    @endpush --}}
 </x-app-layout>

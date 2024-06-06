@@ -5,7 +5,8 @@
         </h2>
     </x-slot>
     <section class="h-screen bg-gray-100 bg-opacity-50 mt-4">
-        <form class="container max-w-2xl mx-auto shadow-md md:w-3/4" action="{{  route('savegejala') }}" method="POST">
+        <form class="container max-w-2xl mx-auto shadow-md md:w-3/4" action="{{  route('updategejala', $gejala->id) }}" method="POST">
+            @method('PUT')
             @csrf
             <div class="space-y-6 bg-white">
                 <div class="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
@@ -14,9 +15,9 @@
                     </h2>
                     <div class="max-w-sm mx-auto md:w-2/3">
                         <div class=" relative ">
-                            <input type="text" id="kode_gejala" name="kode_gejala"
+                            <input type="text" id="id_gejala" name="kode_gejala"
                                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                                placeholder="kode gejala" />
+                                value="{{ $gejala->kode }}" />
                         </div>
                     </div>
                 </div>
@@ -28,7 +29,7 @@
                         <div class=" relative ">
                             <input type="text" id="deskrip_gejala" name="deskrip_gejala"
                                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                                placeholder="deskripsi gejala" />
+                                value="{{ $gejala->deskripsi }}" />
                         </div>
                     </div>
                 </div>

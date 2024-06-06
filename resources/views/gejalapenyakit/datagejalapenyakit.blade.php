@@ -36,11 +36,15 @@
                                 </th>
                                 <th
                                     class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left">
-                                    Penyakit
+                                    PENYAKIT
                                 </th>
                                 <th
                                     class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left">
-                                    Gejala
+                                    GEJALA
+                                </th>
+                                <th
+                                    class="px-6 bg-gray-100 text-gray-600 align-middle border border-solid border-gray-200 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left">
+                                    ACTION
                                 </th>
                             </tr>
                         </thead>
@@ -58,6 +62,14 @@
                                 <td
                                     class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
                                     {{ App\Models\Gejala::where('id', $item->gejala_id)->first()->kode }}
+                                </td>
+                                <td
+                                    class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                                    <a href="{{ route('editgejalapenyakit', $item->id) }}" class="btn btn-warning">Edit</a>
+                                    <form action="{{ route('deletegejalapenyakit', $item->id) }}">
+                                        @csrf
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

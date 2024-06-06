@@ -39,12 +39,12 @@ class GejalaController extends Controller
         // dd($request->all());
         Gejala::create(
             [
-                'id_gejala'=>$request->id_gejala,
-                'deskrip_gejala'=>$request->deskrip_gejala,
+                'kode'=>$request->kode_gejala,
+                'deskripsi'=>$request->deskrip_gejala,
             ]
             );
 
-            return redirect('datagejala');
+            return redirect()->route('datagejala');
 
     }
 
@@ -65,9 +65,10 @@ class GejalaController extends Controller
      * @param  \App\Models\Gejala  $gejala
      * @return \Illuminate\Http\Response
      */
-    public function edit(Gejala $gejala)
+    public function edit($id)
     {
-        //
+        $gejala = Gejala::where('id', $id)->first();
+        return view('gejala.editgejala',compact('gejala'));
     }
 
     /**
@@ -77,9 +78,13 @@ class GejalaController extends Controller
      * @param  \App\Models\Gejala  $gejala
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Gejala $gejala)
+    public function update($id, Request $request)
     {
-        //
+        Gejala::where('id', $id)->update([
+            'kode'=>$request->kode_gejala,
+            'deskripsi'=>$request->deskrip_gejala,
+        ]);
+        return redirect()->route('datagejala');
     }
 
     /**
@@ -88,8 +93,9 @@ class GejalaController extends Controller
      * @param  \App\Models\Gejala  $gejala
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gejala $gejala)
+    public function destroy($id)
     {
-        //
+        Gejala::where('id', $id)->delete();
+        return redirect()->back();
     }
 }

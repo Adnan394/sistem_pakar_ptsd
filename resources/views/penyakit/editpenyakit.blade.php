@@ -5,18 +5,32 @@
         </h2>
     </x-slot>
     <section class="h-screen bg-gray-100 bg-opacity-50 mt-4">
-        <form class="container max-w-2xl mx-auto shadow-md md:w-3/4" action="{{  route('savegejala') }}" method="POST">
+        <form class="container max-w-2xl mx-auto shadow-md md:w-3/4" action="{{ route('updatepenyakit', $penyakit->id) }}"
+            method="POST">
+            @method('PUT')
             @csrf
             <div class="space-y-6 bg-white">
                 <div class="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
                     <h2 class="max-w-sm mx-auto md:w-1/3">
-                        KODE GEJALA
+                        KODE
                     </h2>
                     <div class="max-w-sm mx-auto md:w-2/3">
                         <div class=" relative ">
-                            <input type="text" id="kode_gejala" name="kode_gejala"
+                            <input type="text" id="id_penyakit" name="kode"
                                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                                placeholder="kode gejala" />
+                                value="{{ $penyakit->kode }}" />
+                        </div>
+                    </div>
+                </div>
+                <div class="items-center w-full p-4 space-y-4 text-gray-500 md:inline-flex md:space-y-0">
+                    <h2 class="max-w-sm mx-auto md:w-1/3">
+                        KRITERIA
+                    </h2>
+                    <div class="max-w-sm mx-auto md:w-2/3">
+                        <div class=" relative ">
+                            <input type="text" id="jenis_penyakit" name="kriteria"
+                                class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
+                                value="{{ $penyakit->kriteria }}" />
                         </div>
                     </div>
                 </div>
@@ -26,9 +40,9 @@
                     </h2>
                     <div class="max-w-sm mx-auto md:w-2/3">
                         <div class=" relative ">
-                            <input type="text" id="deskrip_gejala" name="deskrip_gejala"
+                            <input type="text" id="solusi" name="deskripsi"
                                 class=" rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
-                                placeholder="deskripsi gejala" />
+                                value="{{ $penyakit->deskripsi_penyakit }}" />
                         </div>
                     </div>
                 </div>
@@ -39,6 +53,14 @@
                     </button>
                 </div>
             </div>
+            {{-- @method(‘PUT’) --}}
         </form>
     </section>
+    {{-- @push('scripts')
+    <script>
+        $(deskrip_gejala).ready(function() {
+    $('.js-example-basic-multiple').select2();
+    });
+    </script>
+    @endpush --}}
 </x-app-layout>

@@ -45,15 +45,12 @@ class PenyakitController extends Controller
     {
         // dd($request->all());
        $penyakit = Penyakit::create([
-            'id_penyakit'=>request('id_penyakit'),
-            'jenis_penyakit'=>request('jenis_penyakit'),
-            'deskrip_penyakit'=>request('deskrip_penyakit'),
-            'solusi'=>request('solusi'),
-            'deskrip_penyakit'=>request('deskrip_penyakit'),
+            'kode'=>$request->kode,
+            'kriteria'=>$request->kriteria,
+            'deskripsi_penyakit'=> $request->deskripsi
         ]);
-        $penyakit->gejala()->sync(request('gejalas'));
 
-        return back()->with('success', 'penyakit was created');
+        return redirect()->route('datapenyakit');
     }
 
     /**
@@ -73,9 +70,10 @@ class PenyakitController extends Controller
      * @param  \App\Models\Penyakit  $penyakit
      * @return \Illuminate\Http\Response
      */
-    public function edit(Penyakit $penyakit)
+    public function edit($id)
     {
-        //
+        $penyakit = Penyakit::where('id', $id)->first();
+        return view('penyakit.editpenyakit',compact('penyakit'));
     }
 
     /**
@@ -85,9 +83,15 @@ class PenyakitController extends Controller
      * @param  \App\Models\Penyakit  $penyakit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Penyakit $penyakit)
+    public function update($id, Request $request)
     {
-        //
+        Penyakit::where('id', $id)->update([
+            'kode'=>$request->kode,
+            'kriteria'=>$request->kriteria,
+            'deskripsi_penyakit'=> $request->deskripsi
+        ]);
+
+        return redirect()->route('datapenyakit');
     }
 
     /**
@@ -96,8 +100,9 @@ class PenyakitController extends Controller
      * @param  \App\Models\Penyakit  $penyakit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Penyakit $penyakit)
+    public function destroy($id)
     {
-        //
+        Penyakit::where('id', $id)->delete();
+        return redirect()->route('datapenyakit');
     }
 }
