@@ -27,7 +27,11 @@ Route::get('/', function () {
 
 Route::get('/diagnosis', [DiagnosisController::class, 'start'])->name('diagnosis.start');
 Route::post('/diagnosis', [DiagnosisController::class, 'process'])->name('diagnosis.process');
-
+Route::get('/preview', function (Request $request) {
+   return view('preview', [
+        'konsultasi_id' => $request->konsultasi_id
+   ]); 
+});
 // Route::get('konsultasi', function() {
 //     return view('konsultasi.index', [
 //         'gejalas' => Gejala::get(),

@@ -9,6 +9,7 @@
             <p>Kriteria: {{ $penyakit->kriteria }}</p>
             <p>Deskripsi: {{ $penyakit->deskripsi_penyakit }}</p>
             <a href="/" type="button" class="btn btn-primary">Kembali</a>
+            <a href="/preview?konsultasi_id={{ $konsultasi_id }}" type="button" class="btn btn-primary">Preview Hasil</a>
         </div>
     </div>
 </div>

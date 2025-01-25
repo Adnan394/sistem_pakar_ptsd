@@ -38,7 +38,10 @@ class DiagnosisController extends Model
 
         if ($diagnosis) {
             if ($diagnosis->nextGejala == null) {
-                return view('diagnosis.hasil', ['penyakit' => \App\Models\Penyakit::where('id', $diagnosis->penyakit_id)->first()]);
+                return view('diagnosis.hasil', [
+                    'penyakit' => \App\Models\Penyakit::where('id', $diagnosis->penyakit_id)->first(),
+                    'konsultasi_id' => $diagnosis->konsultasi_id
+                ]);
             } else {
                 return view('diagnosis.konsultasi', ['gejala' => $diagnosis->nextGejala]);
             }

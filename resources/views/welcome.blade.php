@@ -1,111 +1,92 @@
 @extends('layouts.home')
 
 @section('content')
-<div id="carouselExampleIndicators" class="carousel slide carousel-dark">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="container">
-            <div class="row">
-                <div class="col d-flex align-items-center">
-                    <div class="">
-                        <h4>Langkah Awal Menuju Pemulihan: Memahami PTSD dan Cara Mengatasinya</h4>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary d-block ms-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Mulai
-                        </button>
-                    </div>
-                </div>
-                <div class="col p-5">
-                    <img src="{{ asset('images/hero1.jpg') }}" class="img-fluid d-block my-auto"  alt="">
-                </div>
-            </div>
+<div class="container">
+  <div class="row">
+    <div class="col-7 d-flex align-items-center">
+        <div class="">
+            <h1>Membangun Masa Depan: Mengatasi PTSD dengan Bantuan Ahli</h1>
+            <button type="button" class="btn text-white btn-lg rounded-1 px-5 mt-3" style="background: #555798" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Mulai
+            </button>
         </div>
-      </div>
-      
-      <div class="carousel-item">
-        <div class="container">
-            <div class="row">
-                <div class="col d-flex align-items-center">
-                    <div class="">
-                        <h4>Membangun Masa Depan: Mengatasi PTSD dengan Bantuan Ahli</h4>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Mulai
-                        </button>
-                    </div>
-                </div>
-                <div class="col p-5">
-                    <img src="{{ asset('images/hero2.jpg') }}" class="img-fluid d-block my-auto"  alt="">
-                </div>
-            </div>
-        </div>
-      </div>
     </div>
-    
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-
+    <div class="col p-5">
+        <img src="{{ asset('images/hero2.jpg') }}" class="img-fluid d-block my-auto"  alt="">
+    </div>
+</div>
 </div>
 
-<div class="container mt-5">
+<div class="container my-5">
   <h2 class="text-center mb-5">Tentang PTSD (Post Traumatic Stress Disorder)</h2>
   <div class="d-flex gap-3 justify-content-center flex-wrap">
-    <div class="card p-3" style="width:24rem">
-      <h5 class="text-center">Apa itu PTSD?</h5>
-      <p>PTSD merupakan gangguan kecemasan yang diakibatkan seseorang telah mengalami suatu kejadian yang sangat menakutkan bahkan sampai mengancam jiwa yang dapat meninggalkan memori kelam bahkan gejala kejiwaan yang serius.
-        Kenali gejala dan kategori kriteria trauma yang dialami.</p>
+    <div class="card shadow" style="width:24rem">
+      <img src="{{ asset('images/article1.jpg') }}" style="height: 200px; width: 100%; object-fit: cover" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="">Apa itu PTSD?</h5>
+        <p>PTSD merupakan gangguan kecemasan yang diakibatkan seseorang telah mengalami suatu kejadian yang sangat menakutkan bahkan sampai mengancam jiwa yang dapat meninggalkan memori kelam bahkan gejala kejiwaan yang serius.
+          Kenali gejala dan kategori kriteria trauma yang dialami.</p>
+      </div>
     </div>
-    <div class="card p-3" style="width:24rem">
-      <h5 class="text-center">Apa saja penyebab PTSD?</h5>
-      <p>Ketika seseorang mengalami suatu kejadian yang tidak mengenakkan atau bahkan mengancam jiwa, seperti kekerasan fisik, pembullyan, pelecehan seksual, kecelakaan serius atau bencana alam. Namun belum tentu penyebab berikut membuat seseorang menjadi trauma atau mengalami kecemasan.
-      </p>
-    </div>
-    <div class="card p-3" style="width:24rem">
-      <h5 class="text-center">Apa saja gejala yang dialami?
-      </h5>
-      <ul>
-        <li>Penghindaran terhadap sesuatu.</li>
-        <li>Mengalami kilas balik.</li>
-        <li>Gangguan aktivitas seperti gangguan tidur.</li>
-        <li>perubahan pola pikir dan suasana hati yang negatif.</li>
-      </ul>
-      </p>
-    </div>
-    <div class="card p-3" style="width:24rem">
-      <h5 class="text-center">Langkah pertama menangani PTSD</h5>
-      <p>Melakukan konsultasi terhadap ahli atau mengkonfirmasi gejala yang dialami
-        Melakukan prosedur pengobatan sesuai yang dianjurkan.
-        Support dari keluarga, teman dan lingkungan sekitar.
+    <div class="card shadow" style="width:24rem">
+      <img src="{{ asset('images/article2.jpg') }}" style="height: 200px; width: 100%; object-fit: cover" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="">Apa saja penyebab PTSD?</h5>
+        <p>Ketika seseorang mengalami suatu kejadian yang tidak mengenakkan atau bahkan mengancam jiwa, seperti kekerasan fisik, pembullyan, pelecehan seksual, kecelakaan serius atau bencana alam. Namun belum tentu penyebab berikut membuat seseorang menjadi trauma atau mengalami kecemasan.
         </p>
+      </div>
     </div>
-    <div class="card p-3" style="width:24rem">
-      <h5 class="text-center">Potensi pemulihan dan pertumbuhan pasca trauma
-      </h5>
-      <p>Seseorang yang telah pulih dari trauma akan mengalami mas post traumatic growth.
-        Mencari dukungan atau pelajari cara penyembuhan dari mantan pengidap.
+    <div class="card shadow" style="width:24rem">
+      <img src="{{ asset('images/article3.jpg') }}" style="height: 200px; width: 100%; object-fit: cover" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="">Apa saja gejala yang dialami?
+        </h5>
+        <ul>
+          <li>Penghindaran terhadap sesuatu.</li>
+          <li>Mengalami kilas balik.</li>
+          <li>Gangguan aktivitas seperti gangguan tidur.</li>
+          <li>perubahan pola pikir dan suasana hati yang negatif.</li>
+        </ul>
         </p>
+      </div>
     </div>
-    <div class="card p-3" style="width:24rem">
-      <h5 class="text-center">Pencegahan PTSD 
-      </h5>
-      <ul>
-        <li>Dengan melakukan aktivitas positif</li>
-        <li>Edukasi</li>
-        <li>Mengelola strees dengan merileksasi pikiran.</li>
-      </ul>
+    <div class="card shadow" style="width:24rem">
+      <img src="{{ asset('images/article4.jpg') }}" style="height: 200px; width: 100%; object-fit: cover" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="">Langkah pertama menangani PTSD</h5>
+        <p>Melakukan konsultasi terhadap ahli atau mengkonfirmasi gejala yang dialami
+          Melakukan prosedur pengobatan sesuai yang dianjurkan.
+          Support dari keluarga, teman dan lingkungan sekitar.
+          </p>
+      </div>
+    </div>
+    <div class="card shadow" style="width:24rem">
+      <img src="{{ asset('images/article5.jpg') }}" style="height: 200px; width: 100%; object-fit: cover" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="">Potensi pemulihan dan pertumbuhan pasca trauma
+        </h5>
+        <p>Seseorang yang telah pulih dari trauma akan mengalami mas post traumatic growth.
+          Mencari dukungan atau pelajari cara penyembuhan dari mantan pengidap.
+          </p>
+      </div>
+    </div>
+    <div class="card shadow" style="width:24rem">
+      <img src="{{ asset('images/article6.jpg') }}" style="height: 200px; width: 100%; object-fit: cover" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="">Pencegahan PTSD 
+        </h5>
+        <ul>
+          <li>Dengan melakukan aktivitas positif</li>
+          <li>Edukasi</li>
+          <li>Mengelola strees dengan merileksasi pikiran.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
+<footer class="d-flex justify-content-center align-items-center" style="background: #555798; width:100%; height: 100px">
+  <p class="text-white">Copyright &copy; 2023</p>
+</footer>
   <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -126,7 +107,7 @@
                 <input type="number" class="form-control" name="umur" required>
             </div>
             <div class="mb-3">
-              <button type="submit" class="btn btn-primary">Kirim</button>
+              <button type="submit" class="btn px-5 rounded-1 text-white" style="background: #555798">Kirim</button>
             </div>
           </form>
         </div>
