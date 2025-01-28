@@ -28,7 +28,7 @@
                 <li><p>Umur : {{ \App\Models\Konsultasi::where('id', $konsultasi_id)->first()->umur }}</p></li>
             </ul>
             @php
-                $penyakit_id = \App\Models\Diagnosa::where('konsultasi_id', $konsultasi_id)->orderBy('id', 'DESC')->first()->penyakit_id;
+                $penyakit_id = \App\Models\Hasil::where('konsultasi_id', $konsultasi_id)->orderBy('persentase', 'DESC')->first()->penyakit_id;
                 $penyakit = \App\Models\Penyakit::where('id', $penyakit_id)->first()->kriteria;
             @endphp
             <p>setelah melakukan diagnosis menggunakan platform Traumacode, saya di diagnosis mengalami penyakit traumatis <strong>{{ $penyakit }}</strong>.</p>
@@ -39,7 +39,6 @@
                     <th scope="col">No</th>
                     <th scope="col">Kode</th>
                     <th scope="col">Diagnosa</th>
-                    <th scope="col">jawaban</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -48,7 +47,6 @@
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ \App\Models\Gejala::where('id', $item->gejala_id)->first()->kode }}</td>
                             <td>{{ \App\Models\Gejala::where('id', $item->gejala_id)->first()->deskripsi }}</td>
-                            <td>{{ $item->jawaban == 1 ? 'Ya' : 'Tidak'  }}</td>
                         </tr>
                     @endforeach
                 </tbody>

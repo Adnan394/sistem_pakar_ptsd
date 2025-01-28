@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDiagnosasTable extends Migration
+class CreateHasilsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateDiagnosasTable extends Migration
      */
     public function up()
     {
-        Schema::create('diagnosas', function (Blueprint $table) {
+        Schema::create('hasils', function (Blueprint $table) {
             $table->id();
             $table->foreignId('konsultasi_id')->references('id')->on('konsultasis');
-            $table->foreignId('gejala_id')->references('id')->on('gejalas');
+            $table->foreignId('penyakit_id')->references('id')->on('penyakits');
+            $table->integer('persentase');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateDiagnosasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('diagnosas');
+        Schema::dropIfExists('hasils');
     }
 }

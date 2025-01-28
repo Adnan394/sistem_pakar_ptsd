@@ -8,17 +8,33 @@
                 <h3>Pertanyaan</h3>
                 <form action="{{ route('diagnosis.process') }}" method="POST">
                     @csrf
-                    <input type="hidden" name="konsultasi_id" value="{{ \App\Models\Konsultasi::orderBy('id', 'DESC')->first()->id }}">
-                    <input type="hidden" name="gejala_id" value="{{ $gejala->id }}">
-                    <p>{{ $gejala->deskripsi }}</p>
-                    <button type="submit" name="jawaban" value="1" class="btn btn-primary">Ya</button>
-                    <button type="submit" name="jawaban" value="0" class="btn btn-danger">Tidak</button>
+                    <table class="table table-stripped">
+                        <thead>
+                          <tr>
+                            <th scope="col" style="width: 40px">No</th>
+                            <th scope="col" style="width: 40px">Kode</th>
+                            <th scope="col">Gejala</th>
+                            <th scope="col" style="width: 40px">Check</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($gejala as $item)
+                            <tr>
+                              <th scope="row" style="width: 40px">{{ $loop->iteration }}</th>
+                              <td>{{ $item->kode }}</td>
+                              <td>{{ $item->deskripsi }}</td>
+                              <td style="width: 40px">
+                                <input type="checkbox" name="gejala_id[]" class="form-check" value="{{ $item->id }}" id="">
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                      </table>
+                      <input type="hidden" value="{{ \App\Models\Konsultasi::orderBy('id', 'DESC')->first()->id }}" name="konsultasi_id" id="">
+                      
+                      <button type="submit" class="btn btn-primary w-100 py-2">Submit</button>
                 </form>
                 
-                <!-- resources/views/diagnosis/hasil.blade.php -->
-                {{-- @if ($penyakit)
-                <p>Hasil Diagnosis: {{ $penyakit->nama_penyakit }}</p>
-                @endif --}}
             </div>
         </div>
     </div>
